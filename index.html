@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Consultor en Desarrollo Software, DevOps y Gestión Equipos
+        </title>
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+        </style>
+        <link rel="stylesheet" href="assets/css/style.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="logo">- BGM -</div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#sobre-mi">Sobre mí</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1>Consultor Experto en Desarrollo, DevOps y Gestión</h1>
+                <p>
+                    Optimiza tus equipos y procesos con soluciones en software,
+                    automatización y DevOps. Transforma tu negocio.
+                </p>
+                <a href="#contacto" class="cta">Contáctame ahora</a>
+            </div>
+        </section>
+
+        <section id="servicios" class="servicios">
+            <h2>Mis Servicios</h2>
+            <div class="servicios-grid">
+                <div class="servicio">
+                    <img
+                        src="assets/img/desarrollo.jpg"
+                        alt="Desarrollo Software"
+                    />
+                    <h3>Desarrollo de Software</h3>
+                    <p>Aplicaciones escalables y modernas.</p>
+                </div>
+                <div class="servicio">
+                    <img src="assets/img/gestion.jpg" alt="Gestión Equipos" />
+                    <h3>Gestión de Equipos</h3>
+                    <p>Liderazgo ágil y alto rendimiento.</p>
+                </div>
+                <div class="servicio">
+                    <img src="assets/img/devops.jpg" alt="DevOps" />
+                    <h3>DevOps y Automatización</h3>
+                    <p>CI/CD, cloud y eficiencia operativa.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre-mi" class="sobre-mi">
+            <h2>Sobre mí</h2>
+            <p>
+                Consultor con +30 años en IT, especializado en desarrollo
+                software, gestión de equipos presenciales y remotos, DevOps y
+                automatización. He ayudado a empresas a escalar con prácticas
+                ágiles y herramientas modernas.
+            </p>
+        </section>
+
+        <section id="contacto" class="contacto">
+            <h2>Contacto</h2>
+            <form>
+                <input type="text" placeholder="Nombre" required />
+                <input type="email" placeholder="Email" required />
+                <textarea placeholder="Mensaje" required></textarea>
+                <button type="submit" class="cta">Enviar</button>
+            </form>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 BGM. Santiago, Chile.</p>
+        </footer>
+        <script>
+            // Menú colapsable
+            const menuToggle = document.getElementById("menuToggle");
+            const navMenu = document.getElementById("navMenu");
+            const navLinks = navMenu.querySelectorAll("a");
+
+            menuToggle.addEventListener("click", () => {
+                navMenu.classList.toggle("active");
+                menuToggle.classList.toggle("active");
+            });
+
+            // Cerrar menú al hacer click en un enlace
+            navLinks.forEach((link) => {
+                link.addEventListener("click", () => {
+                    navMenu.classList.remove("active");
+                    menuToggle.classList.remove("active");
+                });
+            });
+
+            // Cerrar menú al hacer click fuera
+            document.addEventListener("click", (e) => {
+                if (!e.target.closest("header")) {
+                    navMenu.classList.remove("active");
+                    menuToggle.classList.remove("active");
+                }
+            });
+
+            // Scroll reveal
+            window.addEventListener("scroll", () => {
+                document
+                    .querySelectorAll(".servicios, .sobre-mi, .contacto")
+                    .forEach((el) => {
+                        if (el.getBoundingClientRect().top < window.innerHeight)
+                            el.classList.add("visible");
+                    });
+            });
+        </script>
+    </body>
+</html>
