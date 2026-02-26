@@ -244,6 +244,12 @@ h1 {
     font-weight: bold;
 }
 
+a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: bold;
+}
+
 @media (max-width: 768px) {
     h1 {
         font-size: 2rem;
