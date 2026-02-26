@@ -257,4 +257,8 @@ h1 {
     .deliverables-list {
         grid-template-columns: 1fr;
     }
+
+    .hero {
+        padding: 20px 0;
+    }
 }
