@@ -1,14 +1,43 @@
-# BGM Solutions - Landing Page
+# Astro Starter Kit: Minimal
 
-Este es el repositorio del sitio web para BGM Solutions, una consultora tecnológica enfocada en ayudar a PyMEs en Chile a optimizar sus procesos de desarrollo de software y tecnología.
+```sh
+npm create astro@latest -- --template minimal
+```
 
-## Descripción
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-El sitio web es una landing page estática construida con HTML, CSS y JavaScript. Su objetivo es presentar los servicios de consultoría, mostrar los problemas comunes que resuelve y proporcionar información de contacto.
+## 🚀 Project Structure
 
-## Cómo visualizar el sitio
+Inside of your Astro project, you'll see the following folders and files:
 
-1.  Clona este repositorio.
-2.  Abre el archivo `index.html` en tu navegador web.
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-No se requiere ningún servidor o dependencia especial para visualizar el sitio.
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+
+Any static assets, like images, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
