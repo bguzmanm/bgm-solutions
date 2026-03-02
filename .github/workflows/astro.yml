@@ -24,10 +24,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-env:
-  BUILD_PATH: "." # default value when not using subfolders
-  # BUILD_PATH: subfolder
-
 jobs:
   build:
     name: Build
@@ -44,16 +40,14 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Install dependencies
         run: bun install
-        working-directory: ${{ env.BUILD_PATH }}
       - name: Build with Astro
-        run: bun run astro build
-        working-directory: ${{ env.BUILD_PATH }}
+        run: bun run build
       - name: Create .nojekyll file
-        run: touch ${{ env.BUILD_PATH }}/dist/.nojekyll
+        run: touch dist/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ env.BUILD_PATH }}/dist
+          path: 'dist'
 
   deploy:
     environment:
