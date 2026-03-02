@@ -1,22 +1,77 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Problems from '../components/Problems.astro';
-import Timeline from '../components/Timeline.astro';
-import ROI from '../components/ROI.astro';
-import Bio from '../components/Bio.astro';
-import Pricing from '../components/Pricing.astro';
-import Footer from '../components/Footer.astro';
-import ScrollTop from '../components/ScrollTop.astro';
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import ScrollTop from "../components/ScrollTop.astro";
 ---
 
-<Layout title="BGM Solutions - Consultoría Tecnológica">
-    <Hero />
-    <Problems />
-    <Timeline />
-    <ROI />
-    <Bio />
-    <Pricing />
+<Layout title="BGM Solutions - Transformamos tu negocio con tecnología">
+    <header class="hero">
+        <div class="container hero-content">
+            <span class="brand">BGM - SOLUTIONS</span>
+            <h1>Aceleramos tus resultados con tecnología a tu medida</h1>
+            <p class="hero-subtitle">
+                Desde optimización de equipos de desarrollo y arquitectura,
+                hasta desarrollo de software personalizado y análisis de datos.
+                Llevamos a tu empresa al siguiente nivel.
+            </p>
+            <div class="hero-cta">
+                <a href="#servicios" class="btn-primary"
+                    >Ver nuestros servicios</a
+                >
+            </div>
+        </div>
+    </header>
+
+    <section id="servicios" class="container section-padding">
+        <h2 class="section-title text-center">Nuestros Servicios</h2>
+        <div class="services-grid">
+            <a
+                href={`${import.meta.env.BASE_URL}/consultoria`}
+                class="service-card"
+            >
+                <i class="service-icon fas fa-lightbulb"></i>
+                <h3 class="service-title">Consultoría para Equipos</h3>
+                <p class="service-desc">
+                    Optimiza tus procesos de desarrollo, reduce cuellos de
+                    botella y mejora el time-to-market con nuestra asesoría
+                    experta.
+                </p>
+                <span style="color: var(--accent); font-weight: bold;"
+                    >Ver más &rarr;</span
+                >
+            </a>
+            <a
+                href={`${import.meta.env.BASE_URL}/desarrollo-software`}
+                class="service-card"
+            >
+                <i class="service-icon fas fa-code"></i>
+                <h3 class="service-title">Desarrollo de Software</h3>
+                <p class="service-desc">
+                    Creamos soluciones de software a medida, robustas y
+                    escalables, diseñadas específicamente para resolver los
+                    desafíos de tu negocio.
+                </p>
+                <span style="color: var(--accent); font-weight: bold;"
+                    >Ver más &rarr;</span
+                >
+            </a>
+            <a
+                href={`${import.meta.env.BASE_URL}/ciencia-datos`}
+                class="service-card"
+            >
+                <i class="service-icon fas fa-chart-line"></i>
+                <h3 class="service-title">Análisis y Ciencia de Datos</h3>
+                <p class="service-desc">
+                    Transforma tus datos en decisiones estratégicas.
+                    Implementamos modelos predictivos y dashboards accionables.
+                </p>
+                <span style="color: var(--accent); font-weight: bold;"
+                    >Ver más &rarr;</span
+                >
+            </a>
+        </div>
+    </section>
+
     <Footer />
     <ScrollTop />
 </Layout>
