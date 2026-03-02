@@ -1,0 +1,62 @@
+---
+const pathname = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
+const basePath = base.endsWith("/") ? base : base + "/";
+---
+
+<nav class="main-nav">
+  <div class="container nav-container">
+    <a href={basePath} class="nav-brand">BGM Solutions</a>
+
+    <button class="mobile-menu-btn" aria-label="Abrir menú">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <ul class="nav-links">
+      <li>
+        <a href={basePath} class={pathname === basePath ? "active" : ""}
+          >Inicio</a>
+      </li>
+      <li>
+        <a
+          href={`${basePath}consultoria`}
+          class={pathname.includes("/consultoria") ? "active" : ""}
+          >Consultoría</a
+        >
+      </li>
+      <li>
+        <a
+          href={`${basePath}desarrollo-software`}
+          class={pathname.includes("/desarrollo-software") ? "active" : ""}
+          >Desarrollo a Medida</a
+        >
+      </li>
+      <li>
+        <a
+          href={`${basePath}ciencia-datos`}
+          class={pathname.includes("/ciencia-datos") ? "active" : ""}
+          >Ciencia de Datos</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  // Script para menú móvil
+  document.addEventListener("DOMContentLoaded", () => {
+    const mobileBtn = document.querySelector(".mobile-menu-btn");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (mobileBtn && navLinks) {
+      mobileBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        const icon = mobileBtn.querySelector("i");
+        if (icon) {
+          icon.classList.toggle("fa-bars");
+          icon.classList.toggle("fa-times");
+        }
+      });
+    }
+  });
+</script>

@@ -1,0 +1,49 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import ScrollTop from "../components/ScrollTop.astro";
+import HeroScience from "../components/HeroScience.astro";
+import CallToAction from "../components/CallToAction.astro";
+---
+
+<Layout title="BGM Solutions - Análisis y Ciencia de Datos">
+    <HeroScience />
+
+    <section class="container section-padding">
+        <h2 class="section-title text-center">
+            El poder de los datos a tu favor
+        </h2>
+        <div class="grid-problems" style="margin-top: 40px;">
+            <div class="card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Business Intelligence</h3>
+                <p>
+                    Dashboards interactivos y reportes automatizados para
+                    visualizar KPIs en tiempo real.
+                </p>
+            </div>
+            <div class="card">
+                <i class="fas fa-brain"></i>
+                <h3>Modelos Predictivos</h3>
+                <p>
+                    Utilizamos Machine Learning para predecir tendencias y
+                    optimizar la toma de decisiones.
+                </p>
+            </div>
+            <div class="card">
+                <i class="fas fa-database"></i>
+                <h3>Ingeniería de Datos</h3>
+                <p>
+                    Arquitectura y pipelines de datos para recolectar, limpiar y
+                    almacenar tu información.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <CallToAction title="Descubre el valor oculto en tus datos" paragraph="Hablemos sobre cómo podemos aplicar la ciencia de datos a los
+            desafíos de tu negocio."/>
+
+    <Footer />
+    <ScrollTop />
+</Layout>
