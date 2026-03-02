@@ -42,9 +42,8 @@ const basePath = base.endsWith("/") ? base : base + "/";
   </div>
 </nav>
 
-<script>
-  // Script para menú móvil
-  document.addEventListener("DOMContentLoaded", () => {
+<script is:inline>
+  function setupMobileMenu() {
     const mobileBtn = document.querySelector(".mobile-menu-btn");
     const navLinks = document.querySelector(".nav-links");
 
@@ -58,5 +57,11 @@ const basePath = base.endsWith("/") ? base : base + "/";
         }
       });
     }
-  });
+  }
+
+  // Ejecutar en la carga inicial
+  setupMobileMenu();
+
+  // Ejecutar después de cada navegación con View Transitions
+  document.addEventListener("astro:page-load", setupMobileMenu);
 </script>
