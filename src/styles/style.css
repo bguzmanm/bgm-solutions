@@ -345,6 +345,8 @@ a {
     cursor: pointer;
 }
 
+
+
 /* Services Grid */
 .services-grid {
     display: grid;
@@ -414,4 +416,25 @@ a {
         text-align: center;
         padding: 0.5rem 0;
     }
+}
+
+/* View Transitions */
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+}
+
+@keyframes fade-out {
+	to {
+		opacity: 0;
+	}
+}
+
+::view-transition-old(root) {
+	animation: fade-out 0.5s ease-in-out;
+}
+
+::view-transition-new(root) {
+	animation: fade-in 0.5s ease-in-out;
 }

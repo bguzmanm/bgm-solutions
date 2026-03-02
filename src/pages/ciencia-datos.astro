@@ -2,66 +2,48 @@
 import Layout from "../layouts/Layout.astro";
 import Footer from "../components/Footer.astro";
 import ScrollTop from "../components/ScrollTop.astro";
+import HeroScience from "../components/HeroScience.astro";
+import CallToAction from "../components/CallToAction.astro";
 ---
 
 <Layout title="BGM Solutions - Análisis y Ciencia de Datos">
-  <header
-    class="hero"
-    style="padding: 80px 0; min-height: 40vh; display: flex; align-items: center;"
-  >
-    <div class="container hero-content">
-      <span class="brand">SERVICIOS</span>
-      <h1>Análisis y Ciencia de Datos</h1>
-      <p class="hero-subtitle">
-        Convierte la información de tu empresa en una ventaja competitiva.
-      </p>
-    </div>
-  </header>
+    <HeroScience />
 
-  <section class="container section-padding">
-    <h2 class="section-title text-center">El poder de los datos a tu favor</h2>
-    <div class="grid-problems" style="margin-top: 40px;">
-      <div class="card">
-        <i class="fas fa-chart-line"></i>
-        <h3>Business Intelligence</h3>
-        <p>
-          Dashboards interactivos y reportes automatizados para visualizar KPIs
-          en tiempo real.
-        </p>
-      </div>
-      <div class="card">
-        <i class="fas fa-brain"></i>
-        <h3>Modelos Predictivos</h3>
-        <p>
-          Utilizamos Machine Learning para predecir tendencias y optimizar la
-          toma de decisiones.
-        </p>
-      </div>
-      <div class="card">
-        <i class="fas fa-database"></i>
-        <h3>Ingeniería de Datos</h3>
-        <p>
-          Arquitectura y pipelines de datos para recolectar, limpiar y almacenar
-          tu información.
-        </p>
-      </div>
-    </div>
-  </section>
+    <section class="container section-padding">
+        <h2 class="section-title text-center">
+            El poder de los datos a tu favor
+        </h2>
+        <div class="grid-problems" style="margin-top: 40px;">
+            <div class="card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Business Intelligence</h3>
+                <p>
+                    Dashboards interactivos y reportes automatizados para
+                    visualizar KPIs en tiempo real.
+                </p>
+            </div>
+            <div class="card">
+                <i class="fas fa-brain"></i>
+                <h3>Modelos Predictivos</h3>
+                <p>
+                    Utilizamos Machine Learning para predecir tendencias y
+                    optimizar la toma de decisiones.
+                </p>
+            </div>
+            <div class="card">
+                <i class="fas fa-database"></i>
+                <h3>Ingeniería de Datos</h3>
+                <p>
+                    Arquitectura y pipelines de datos para recolectar, limpiar y
+                    almacenar tu información.
+                </p>
+            </div>
+        </div>
+    </section>
 
-  <section
-    class="container section-padding bg-dark-alt"
-    style="border-radius: 12px; text-align: center; margin-bottom: 80px;"
-  >
-    <h2>Descubre el valor oculto en tus datos</h2>
-    <p style="margin-bottom: 30px; color: #aaa;">
-      Hablemos sobre cómo podemos aplicar la ciencia de datos a los desafíos de
-      tu negocio.
-    </p>
-    <a href="https://calendar.app.google/4occ12N5XGe6aqYf8" class="btn-primary"
-      >Agendar reunión ahora</a
-    >
-  </section>
+    <CallToAction title="Descubre el valor oculto en tus datos" paragraph="Hablemos sobre cómo podemos aplicar la ciencia de datos a los
+            desafíos de tu negocio."/>
 
-  <Footer />
-  <ScrollTop />
+    <Footer />
+    <ScrollTop />
 </Layout>

@@ -2,69 +2,47 @@
 import Layout from "../layouts/Layout.astro";
 import Footer from "../components/Footer.astro";
 import ScrollTop from "../components/ScrollTop.astro";
+import HeroDevelopment from "../components/HeroDevelopment.astro";
+import Bio from "../components/Bio.astro";
+import CallToAction from "../components/CallToAction.astro";
 ---
 
 <Layout title="BGM Solutions - Desarrollo de Software">
-  <header
-    class="hero"
-    style="padding: 80px 0; min-height: 40vh; display: flex; align-items: center;"
-  >
-    <div class="container hero-content">
-      <span class="brand">SERVICIOS</span>
-      <h1>Desarrollo de Software a Medida</h1>
-      <p class="hero-subtitle">
-        Soluciones tecnológicas escalables y adaptadas a las necesidades únicas
-        de tu empresa.
-      </p>
-    </div>
-  </header>
+    <HeroDevelopment/>
 
-  <section class="container section-padding">
-    <h2 class="section-title text-center">
-      Construimos el futuro de tu negocio
-    </h2>
-    <div class="grid-problems" style="margin-top: 40px;">
-      <div class="card">
-        <i class="fas fa-laptop-code"></i>
-        <h3>Aplicaciones Web</h3>
-        <p>
-          Desarrollo de plataformas robustas y modernas utilizando las últimas
-          tecnologías.
-        </p>
-      </div>
-      <div class="card">
-        <i class="fas fa-server"></i>
-        <h3>Integración de Sistemas</h3>
-        <p>
-          Conectamos tus sistemas actuales para crear un flujo de trabajo
-          eficiente y unificado.
-        </p>
-      </div>
-      <div class="card">
-        <i class="fas fa-mobile-alt"></i>
-        <h3>Aplicaciones Móviles</h3>
-        <p>
-          Lleva tu negocio a las manos de tus clientes con apps nativas o
-          multiplataforma.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section
-    class="container section-padding bg-dark-alt"
-    style="border-radius: 12px; text-align: center; margin-bottom: 80px;"
-  >
-    <h2>¿Listo para empezar tu proyecto?</h2>
-    <p style="margin-bottom: 30px; color: #aaa;">
-      Agenda una reunión con nosotros para discutir tus requerimientos técnicos
-      y de negocio.
-    </p>
-    <a href="https://calendar.app.google/4occ12N5XGe6aqYf8" class="btn-primary"
-      >Agendar reunión ahora</a
-    >
-  </section>
-
-  <Footer />
-  <ScrollTop />
+    <section class="container section-padding">
+        <h2 class="section-title text-center">
+            Construimos el futuro de tu negocio
+        </h2>
+        <div class="grid-problems" style="margin-top: 40px;">
+            <div class="card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Aplicaciones Web</h3>
+                <p>
+                    Desarrollo de plataformas robustas y modernas utilizando las
+                    últimas tecnologías.
+                </p>
+            </div>
+            <div class="card">
+                <i class="fas fa-server"></i>
+                <h3>Integración de Sistemas</h3>
+                <p>
+                    Conectamos tus sistemas actuales para crear un flujo de
+                    trabajo eficiente y unificado.
+                </p>
+            </div>
+            <div class="card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Aplicaciones Móviles</h3>
+                <p>
+                    Lleva tu negocio a las manos de tus clientes con apps
+                    nativas o multiplataforma.
+                </p>
+            </div>
+        </div>
+    </section>
+    <CallToAction title="¿Listo para empezar tu proyecto?" paragraph="Agenda una reunión con nosotros para discutir tus requerimientos
+        técnicos y de negocio."/>
+    <Footer/>
+    <ScrollTop/>
 </Layout>
