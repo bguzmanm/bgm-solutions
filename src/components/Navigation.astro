@@ -14,7 +14,7 @@ const basePath = base.endsWith("/") ? base : base + "/";
 
     <ul class="nav-links">
       <li>
-        <a href="/" class={pathname === basePath ? "active" : ""}
+        <a href="/#" class={pathname === basePath ? "active" : ""}
           >Inicio</a>
       </li>
       <li>
@@ -26,14 +26,14 @@ const basePath = base.endsWith("/") ? base : base + "/";
       </li>
       <li>
         <a
-          href="desarrollo-software"
+          href="/desarrollo-software"
           class={pathname.includes("/desarrollo-software") ? "active" : ""}
           >Desarrollo a Medida</a
         >
       </li>
       <li>
         <a
-          href="ciencia-datos"
+          href="/ciencia-datos"
           class={pathname.includes("/ciencia-datos") ? "active" : ""}
           >Ciencia de Datos</a
         >
