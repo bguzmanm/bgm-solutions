@@ -24,6 +24,10 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  BUILD_PATH: "." # default value when not using subfolders
+  # BUILD_PATH: subfolder
+
 jobs:
   build:
     name: Build
@@ -31,6 +35,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "25"
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
         with:
@@ -41,13 +49,14 @@ jobs:
       - name: Install dependencies
         run: bun install
       - name: Build with Astro
-        run: bun run build
+        run: bun run build --site "${{ steps.pages.outputs.origin }}" --base "${{ steps.pages.outputs.base_path }}"
+        working-directory: ${{ env.BUILD_PATH }}
       - name: Create .nojekyll file
         run: touch dist/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist'
+          path: ${{ env.BUILD_PATH }}/dist
 
   deploy:
     environment:
