@@ -561,162 +561,6 @@ a {
 	font-size: 1.02rem;
 }
 
-/* Pipeline */
-.ds-pipeline {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 18px;
-}
-
-.ds-stage {
-	position: relative;
-	background: #11151c;
-	border: 1px solid var(--card-border);
-	border-radius: 10px;
-	padding: 28px 24px;
-	transition: border-color 0.3s;
-}
-
-.ds-stage:hover {
-	border-color: #2b3a47;
-}
-
-.ds-stage::before,
-.ds-stage::after {
-	content: "";
-	position: absolute;
-	top: 0;
-}
-
-.ds-stage::before {
-	left: 24px;
-	right: 24px;
-	height: 1px;
-	background: linear-gradient(90deg, transparent, #232a35, transparent);
-}
-
-.ds-stage::after {
-	left: 24px;
-	width: 6px;
-	height: 6px;
-	border-radius: 50%;
-	background: var(--accent);
-	transform: translateY(-50%);
-}
-
-.ds-stage-n {
-	font-family: 'Ubuntu Mono', monospace;
-	font-size: 0.8rem;
-	letter-spacing: 2px;
-	color: var(--accent);
-	display: block;
-	margin-bottom: 14px;
-}
-
-.ds-stage h3 {
-	font-size: 1.15rem;
-	color: #fff;
-	margin-bottom: 8px;
-}
-
-.ds-stage p {
-	color: var(--ds-muted);
-	font-size: 0.95rem;
-	line-height: 1.55;
-	margin: 0;
-}
-
-/* Proceso */
-.ds-timeline {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 18px;
-}
-
-.ds-tstep {
-	background: #0d1117;
-	border: 1px solid var(--card-border);
-	border-radius: 10px;
-	padding: 26px 24px;
-}
-
-.ds-tstep-week {
-	font-family: 'Ubuntu Mono', monospace;
-	font-size: 0.75rem;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	color: var(--accent);
-	display: block;
-	margin-bottom: 12px;
-}
-
-.ds-tstep h3 {
-	font-size: 1.15rem;
-	color: #fff;
-	margin-bottom: 8px;
-}
-
-.ds-tstep p {
-	color: var(--ds-muted);
-	font-size: 0.95rem;
-	line-height: 1.55;
-	margin: 0;
-}
-
-.ds-tstep-highlight {
-	border-color: #2b3a47;
-	box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.2);
-}
-
-.ds-deliver {
-	list-style: none;
-	margin: 20px 0 0;
-	padding: 18px 0 0;
-	border-top: 1px solid #232a35;
-	display: grid;
-	gap: 10px;
-}
-
-.ds-deliver li {
-	color: var(--ds-text);
-	font-size: 0.92rem;
-}
-
-.ds-deliver i {
-	color: var(--accent);
-	margin-right: 8px;
-}
-
-/* Resultados */
-.ds-results {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 18px;
-}
-
-.ds-result {
-	background: #11151c;
-	border: 1px solid var(--card-border);
-	border-radius: 10px;
-	padding: 30px 24px;
-	text-align: left;
-}
-
-.ds-result-val {
-	font-family: 'Ubuntu Mono', monospace;
-	font-size: clamp(2rem, 4vw, 2.6rem);
-	font-weight: bold;
-	color: var(--accent);
-	display: block;
-	margin-bottom: 10px;
-}
-
-.ds-result-lbl {
-	color: var(--ds-muted);
-	font-size: 0.95rem;
-	line-height: 1.45;
-}
-
 /* Stack por categorías (compartido) */
 .stack-grid {
 	display: grid;
@@ -842,6 +686,23 @@ a {
 	max-width: 640px;
 }
 
+/* Detalles suaves */
+.faq-item {
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: grid-template-rows 0.3s ease;
+}
+
+.faq-item[open] {
+	grid-template-rows: 1fr;
+}
+
+.faq-item > * {
+	min-height: 0;
+	overflow: hidden;
+}
+
+/* Focus */
 .ds-hero a:focus-visible,
 .faq summary:focus-visible {
 	outline: 2px solid var(--accent);
@@ -1161,159 +1022,6 @@ a {
 	transform: translateX(-50%);
 }
 
-/* Capacidades */
-.dev-cap-grid {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 18px;
-}
-
-.dev-cap {
-	position: relative;
-	background: #11151c;
-	border: 1px solid var(--card-border);
-	border-radius: 10px;
-	padding: 28px 24px;
-	transition: border-color 0.3s;
-}
-
-.dev-cap:hover {
-	border-color: #2b3a47;
-}
-
-.dev-cap::before,
-.dev-cap::after {
-	content: "";
-	position: absolute;
-	top: 0;
-}
-
-.dev-cap::before {
-	left: 24px;
-	right: 24px;
-	height: 1px;
-	background: linear-gradient(90deg, transparent, #232a35, transparent);
-}
-
-.dev-cap::after {
-	left: 24px;
-	width: 6px;
-	height: 6px;
-	border-radius: 50%;
-	background: var(--accent);
-	transform: translateY(-50%);
-}
-
-.dev-cap i {
-	font-size: 1.4rem;
-	color: var(--accent);
-	margin-bottom: 14px;
-	display: block;
-}
-
-.dev-cap h3 {
-	font-size: 1.15rem;
-	color: #fff;
-	margin-bottom: 8px;
-}
-
-.dev-cap p {
-	color: var(--ds-muted);
-	font-size: 0.95rem;
-	line-height: 1.55;
-	margin: 0;
-}
-
-/* Proceso */
-.dev-process {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 18px;
-}
-
-.dev-proc {
-	background: #0d1117;
-	border: 1px solid var(--card-border);
-	border-radius: 10px;
-	padding: 26px 24px;
-}
-
-.dev-proc-week {
-	font-family: 'Ubuntu Mono', monospace;
-	font-size: 0.75rem;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	color: var(--accent);
-	display: block;
-	margin-bottom: 12px;
-}
-
-.dev-proc h3 {
-	font-size: 1.15rem;
-	color: #fff;
-	margin-bottom: 8px;
-}
-
-.dev-proc p {
-	color: var(--ds-muted);
-	font-size: 0.95rem;
-	line-height: 1.55;
-	margin: 0;
-}
-
-.dev-proc-highlight {
-	border-color: #2b3a47;
-	box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.2);
-}
-
-.dev-deliver {
-	list-style: none;
-	margin: 20px 0 0;
-	padding: 18px 0 0;
-	border-top: 1px solid #232a35;
-	display: grid;
-	gap: 10px;
-}
-
-.dev-deliver li {
-	color: var(--ds-text);
-	font-size: 0.92rem;
-}
-
-.dev-deliver i {
-	color: var(--accent);
-	margin-right: 8px;
-}
-
-/* Resultados */
-.dev-results {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 18px;
-}
-
-.dev-result {
-	background: #11151c;
-	border: 1px solid var(--card-border);
-	border-radius: 10px;
-	padding: 30px 24px;
-}
-
-.dev-result-val {
-	font-family: 'Ubuntu Mono', monospace;
-	font-size: clamp(1.8rem, 3.4vw, 2.4rem);
-	font-weight: bold;
-	color: var(--accent);
-	display: block;
-	margin-bottom: 10px;
-}
-
-.dev-result-lbl {
-	color: var(--ds-muted);
-	font-size: 0.95rem;
-	line-height: 1.45;
-}
-
 .dev-hero a:focus-visible {
 	outline: 2px solid var(--accent);
 	outline-offset: 3px;
@@ -1373,19 +1081,7 @@ a {
 	}
 }
 
-@media (max-width: 900px) {
-	.dev-cap-grid,
-	.dev-process {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-
 @media (max-width: 600px) {
-	.dev-cap-grid,
-	.dev-process,
-	.dev-results {
-		grid-template-columns: 1fr;
-	}
 	.dev-wire-body {
 		grid-template-columns: 1fr;
 	}
@@ -1454,6 +1150,19 @@ a {
 	font-size: 0.95rem;
 	line-height: 1.55;
 	margin: 0;
+}
+
+.grid-card-num {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 0.8rem;
+	letter-spacing: 2px;
+	color: var(--accent);
+	display: block;
+	margin-bottom: 14px;
+}
+
+.grid-cards--3 {
+	grid-template-columns: repeat(3, 1fr);
 }
 
 /* Proceso compartido */
@@ -2129,4 +1838,11 @@ a {
 		align-items: flex-start;
 		gap: 4px;
 	}
+}
+
+/* ===== Página 404 ===== */
+.not-found h1 {
+	font-size: clamp(4rem, 12vw, 8rem);
+	line-height: 1;
+	margin-bottom: 8px;
 }
