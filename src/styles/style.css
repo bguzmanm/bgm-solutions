@@ -442,3 +442,572 @@ a {
 ::view-transition-new(root) {
 	animation: fade-in 0.5s ease-in-out;
 }
+
+/* ===== Página Ciencia de Datos ===== */
+.ds-hero {
+	--ds-panel: #11151c;
+	--ds-inset: #0c0f14;
+	--ds-line: #232a35;
+	--ds-muted: #8b93a1;
+	--ds-text: #e6e9ed;
+	--ds-good: #2dd4a7;
+	width: 100%;
+	padding: 96px 0 88px;
+	background:
+		linear-gradient(rgba(9, 12, 16, 0.9), rgba(9, 12, 16, 0.96)),
+		radial-gradient(circle at 80% 15%, rgba(0, 212, 255, 0.12), transparent 45%);
+	background-color: #0a0d11;
+	border-bottom: 1px solid var(--card-border);
+}
+
+.ds-hero-inner {
+	display: grid;
+	grid-template-columns: 1.05fr 0.95fr;
+	gap: 64px;
+	align-items: center;
+}
+
+.ds-hero-copy h1 {
+	font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+	line-height: 1.15;
+	text-align: left;
+	margin-bottom: 18px;
+}
+
+.ds-hero-copy .hero-subtitle {
+	text-align: left;
+	margin-left: 0;
+	font-size: 1.1rem;
+}
+
+.ds-eyebrow {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 0.9rem;
+	color: var(--ds-muted);
+	margin-bottom: 22px;
+	letter-spacing: 1px;
+}
+
+.ds-prompt {
+	color: #ff9738;
+	font-weight: bold;
+	margin-right: 8px;
+}
+
+/* Panel de dashboard */
+.ds-panel {
+	background: var(--ds-panel);
+	border: 1px solid var(--ds-line);
+	border-radius: 12px;
+	padding: 22px;
+	box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+	animation: ds-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.ds-panel-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 0.8rem;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: var(--ds-muted);
+	border-bottom: 1px solid var(--ds-line);
+	padding-bottom: 14px;
+	margin-bottom: 18px;
+}
+
+.ds-live {
+	color: var(--ds-good);
+}
+
+.ds-live i {
+	font-size: 0.5rem;
+	vertical-align: middle;
+	margin-right: 6px;
+	animation: ds-pulse 1.6s ease-in-out infinite;
+}
+
+/* KPIs */
+.ds-kpis {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 12px;
+}
+
+.ds-kpi {
+	background: var(--ds-inset);
+	border: 1px solid var(--ds-line);
+	border-radius: 8px;
+	padding: 14px 12px;
+}
+
+.ds-kpi-value {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 1.6rem;
+	font-weight: bold;
+	color: var(--accent);
+	display: block;
+	line-height: 1.1;
+}
+
+.ds-kpi-label {
+	font-size: 0.78rem;
+	color: var(--ds-muted);
+	line-height: 1.35;
+	margin-top: 6px;
+	display: block;
+}
+
+/* Gráfico */
+.ds-chart {
+	margin-top: 18px;
+	padding: 16px;
+	background: var(--ds-inset);
+	border: 1px solid var(--ds-line);
+	border-radius: 8px;
+}
+
+.ds-chart-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 0.85rem;
+	color: var(--ds-text);
+	margin-bottom: 14px;
+}
+
+.ds-mon {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 0.7rem;
+	letter-spacing: 2px;
+	color: var(--ds-muted);
+}
+
+.ds-bars {
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	gap: 10px;
+	border-bottom: 1px solid var(--ds-line);
+	padding-bottom: 4px;
+}
+
+.ds-bar-g {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 4px;
+	height: 150px;
+}
+
+.ds-bar-actual,
+.ds-bar-pro {
+	width: 10px;
+	display: block;
+	transform-origin: bottom;
+	animation: ds-grow 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d) both;
+}
+
+.ds-bar-actual {
+	height: var(--h);
+	background: var(--accent);
+}
+
+.ds-bar-pro {
+	height: var(--h);
+	background: rgba(0, 212, 255, 0.08);
+	border: 1px solid rgba(0, 212, 255, 0.55);
+}
+
+.ds-legend {
+	display: flex;
+	gap: 18px;
+	font-size: 0.75rem;
+	color: var(--ds-muted);
+	margin-top: 10px;
+}
+
+.ds-dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 2px;
+	display: inline-block;
+	margin-right: 6px;
+}
+
+.ds-dot-actual {
+	background: var(--accent);
+}
+
+.ds-dot-pro {
+	background: rgba(0, 212, 255, 0.08);
+	border: 1px solid rgba(0, 212, 255, 0.55);
+}
+
+/* Flujo de datos */
+.ds-flow {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-top: 16px;
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 0.78rem;
+	color: var(--ds-muted);
+	flex-wrap: wrap;
+}
+
+.ds-flow-step {
+	background: var(--ds-inset);
+	border: 1px solid var(--ds-line);
+	border-radius: 6px;
+	padding: 8px 12px;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	white-space: nowrap;
+}
+
+.ds-flow-step i {
+	color: var(--accent);
+	font-size: 0.8rem;
+}
+
+.ds-flow-arrow {
+	color: var(--accent);
+}
+
+/* Encabezados de sección */
+.ds-sec-head {
+	max-width: 640px;
+	margin-bottom: 44px;
+}
+
+.ds-sec-head h2 {
+	font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+	color: #fff;
+	margin-bottom: 12px;
+}
+
+.ds-sub {
+	color: var(--ds-muted);
+	font-size: 1.02rem;
+}
+
+/* Pipeline */
+.ds-pipeline {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 18px;
+}
+
+.ds-stage {
+	position: relative;
+	background: #11151c;
+	border: 1px solid var(--card-border);
+	border-radius: 10px;
+	padding: 28px 24px;
+	transition: border-color 0.3s;
+}
+
+.ds-stage:hover {
+	border-color: #2b3a47;
+}
+
+.ds-stage::before,
+.ds-stage::after {
+	content: "";
+	position: absolute;
+	top: 0;
+}
+
+.ds-stage::before {
+	left: 24px;
+	right: 24px;
+	height: 1px;
+	background: linear-gradient(90deg, transparent, #232a35, transparent);
+}
+
+.ds-stage::after {
+	left: 24px;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: var(--accent);
+	transform: translateY(-50%);
+}
+
+.ds-stage-n {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 0.8rem;
+	letter-spacing: 2px;
+	color: var(--accent);
+	display: block;
+	margin-bottom: 14px;
+}
+
+.ds-stage h3 {
+	font-size: 1.15rem;
+	color: #fff;
+	margin-bottom: 8px;
+}
+
+.ds-stage p {
+	color: var(--ds-muted);
+	font-size: 0.95rem;
+	line-height: 1.55;
+	margin: 0;
+}
+
+/* Proceso */
+.ds-timeline {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 18px;
+}
+
+.ds-tstep {
+	background: #0d1117;
+	border: 1px solid var(--card-border);
+	border-radius: 10px;
+	padding: 26px 24px;
+}
+
+.ds-tstep-week {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 0.75rem;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: var(--accent);
+	display: block;
+	margin-bottom: 12px;
+}
+
+.ds-tstep h3 {
+	font-size: 1.15rem;
+	color: #fff;
+	margin-bottom: 8px;
+}
+
+.ds-tstep p {
+	color: var(--ds-muted);
+	font-size: 0.95rem;
+	line-height: 1.55;
+	margin: 0;
+}
+
+.ds-tstep-highlight {
+	border-color: #2b3a47;
+	box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.2);
+}
+
+.ds-deliver {
+	list-style: none;
+	margin: 20px 0 0;
+	padding: 18px 0 0;
+	border-top: 1px solid #232a35;
+	display: grid;
+	gap: 10px;
+}
+
+.ds-deliver li {
+	color: var(--ds-text);
+	font-size: 0.92rem;
+}
+
+.ds-deliver i {
+	color: var(--accent);
+	margin-right: 8px;
+}
+
+/* Resultados */
+.ds-results {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 18px;
+}
+
+.ds-result {
+	background: #11151c;
+	border: 1px solid var(--card-border);
+	border-radius: 10px;
+	padding: 30px 24px;
+	text-align: left;
+}
+
+.ds-result-val {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: clamp(2rem, 4vw, 2.6rem);
+	font-weight: bold;
+	color: var(--accent);
+	display: block;
+	margin-bottom: 10px;
+}
+
+.ds-result-lbl {
+	color: var(--ds-muted);
+	font-size: 0.95rem;
+	line-height: 1.45;
+}
+
+/* Stack */
+.ds-stack {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.ds-stack li {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 0.88rem;
+	color: var(--ds-text);
+	background: #0d1117;
+	border: 1px solid var(--card-border);
+	border-radius: 6px;
+	padding: 10px 16px;
+	transition: border-color 0.3s, color 0.3s;
+}
+
+.ds-stack li:hover {
+	border-color: #2b3a47;
+	color: #fff;
+}
+
+/* FAQ */
+.ds-faq {
+	max-width: 780px;
+	border-top: 1px solid var(--card-border);
+}
+
+.ds-faq-item {
+	border-bottom: 1px solid var(--card-border);
+}
+
+.ds-faq-item summary {
+	cursor: pointer;
+	list-style: none;
+	padding: 20px 0;
+	font-size: 1.05rem;
+	font-weight: bold;
+	color: #fff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px;
+}
+
+.ds-faq-item summary::-webkit-details-marker {
+	display: none;
+}
+
+.ds-faq-item summary::after {
+	content: "+";
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 1.2rem;
+	color: var(--accent);
+	flex-shrink: 0;
+	transition: transform 0.25s;
+}
+
+.ds-faq-item[open] summary::after {
+	transform: rotate(45deg);
+}
+
+.ds-faq-item p {
+	color: var(--ds-muted);
+	padding: 0 0 20px;
+	margin: 0;
+	font-size: 0.97rem;
+	line-height: 1.6;
+	max-width: 640px;
+}
+
+.ds-hero a:focus-visible,
+.ds-faq summary:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+}
+
+@keyframes ds-grow {
+	from {
+		transform: scaleY(0);
+	}
+	to {
+		transform: scaleY(1);
+	}
+}
+
+@keyframes ds-rise {
+	from {
+		opacity: 0;
+		transform: translateY(16px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes ds-pulse {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.3;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ds-bar-actual,
+	.ds-bar-pro,
+	.ds-panel,
+	.ds-live i {
+		animation: none !important;
+	}
+}
+
+@media (max-width: 1024px) {
+	.ds-hero-inner {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+	.ds-hero {
+		padding: 72px 0 64px;
+	}
+	.ds-hero-copy h1 {
+		text-align: left;
+	}
+}
+
+@media (max-width: 900px) {
+	.ds-pipeline,
+	.ds-timeline {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 700px) {
+	.ds-kpis {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 620px) {
+	.ds-pipeline,
+	.ds-timeline,
+	.ds-results {
+		grid-template-columns: 1fr;
+	}
+	.ds-bar-actual,
+	.ds-bar-pro {
+		width: 7px;
+	}
+	.ds-bar-g {
+		height: 120px;
+	}
+}
