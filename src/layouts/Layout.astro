@@ -2,9 +2,16 @@
 import { ViewTransitions } from "astro:transitions";
 interface Props {
 	title: string;
+	description?: string;
 }
 
-const { title } = Astro.props;
+const {
+	title,
+	description =
+		"Consultoría tecnológica para PyMEs en Chile: optimiza tu equipo de desarrollo, construye software a medida y convierte tus datos en decisiones. Método claro y precios sin sorpresas.",
+} = Astro.props;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
+const ogImage = Astro.site ? new URL("/og.png", Astro.site) : undefined;
 import "@/styles/style.css";
 
 import Navigation from "../components/Navigation.astro";
@@ -19,15 +26,29 @@ import Navigation from "../components/Navigation.astro";
 			rel="icon"
 			href={`/favicon.ico`}
 		/>
+		<link
+			rel="canonical"
+			href={canonical}
+		/>
 		<meta name="generator" content={Astro.generator} />
 		<meta
 			name="description"
-			content="Consultoría tecnológica para PyMEs en Chile. Optimizamos tus procesos de desarrollo de software, reducimos costos y aceleramos el time-to-market."
+			content={description}
 		/>
 		<meta
 			name="keywords"
-			content="consultoría tecnológica, desarrollo de software, PyMEs Chile, DevOps, arquitectura de software, optimización de procesos"
+			content="consultoría tecnológica, desarrollo de software, PyMEs Chile, DevOps, arquitectura de software, ciencia de datos, dashboards, machine learning"
 		/>
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="BGM Solutions" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={ogImage} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
 		<title>{title}</title>
 		<link
 			rel="stylesheet"

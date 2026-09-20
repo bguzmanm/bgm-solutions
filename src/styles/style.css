@@ -1927,6 +1927,7 @@ a {
 	padding: 120px 0;
 	background:
 		linear-gradient(rgba(10, 13, 17, 0.9), rgba(10, 13, 17, 0.97)),
+		url("/hero-dam.webp") center/cover no-repeat,
 		url("/hero-dam.jpeg") center/cover no-repeat;
 	background-color: #0a0d11;
 	border-bottom: 1px solid var(--card-border);
