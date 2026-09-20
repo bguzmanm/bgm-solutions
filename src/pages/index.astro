@@ -4,11 +4,36 @@ import Footer from "../components/Footer.astro";
 import ScrollTop from "../components/ScrollTop.astro";
 import Hero from "../components/Hero.astro";
 import OurServices from "../components/OurServices.astro";
+import CallToAction from "../components/CallToAction.astro";
 ---
 
 <Layout title="BGM Solutions - Transformamos tu negocio con tecnología">
     <Hero />
     <OurServices />
+
+    <section class="bg-dark-alt section-padding">
+        <div class="container home-band">
+            <div class="home-band-item">
+                <i class="fas fa-search"></i>
+                <strong>Diagnóstico en 10 días</strong>
+                <span>Entregables con impacto en pesos, no un informe decorativo.</span>
+            </div>
+            <div class="home-band-item">
+                <i class="fas fa-bolt"></i>
+                <strong>Quick wins en semanas</strong>
+                <span>Primer dashboard, análisis o feature en los primeros 15 días.</span>
+            </div>
+            <div class="home-band-item">
+                <i class="fas fa-receipt"></i>
+                <strong>Costo claro por fase</strong>
+                <span>Precios cerrados por etapa, sin sorpresas a mitad de camino.</span>
+            </div>
+        </div>
+    </section>
+
+    <CallToAction
+        title="Conversemos sobre tu próximo paso"
+        paragraph="Tu empresa ya tiene el equipo y los datos. Nosotros aportamos el método para que rindan." />
 
     <Footer />
     <ScrollTop />
