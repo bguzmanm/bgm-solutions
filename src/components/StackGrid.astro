@@ -1,0 +1,69 @@
+---
+const IMG_COLOR = "8B93A1";
+
+interface Tool {
+    name: string;
+    purpose: string;
+    /** Simple Icons slug. Usa `fa` para Font Awesome o ninguno para tile por iniciales. */
+    icon?: string;
+    fa?: string;
+}
+
+interface Props {
+    title: string;
+    subtitle?: string;
+    groups: { title: string; tools: Tool[] }[];
+}
+
+const { title, subtitle, groups } = Astro.props;
+
+const initials = (name: string) => {
+    const words = name.split(/\s+/);
+    const text = words.length > 1 ? words.map((w) => w[0]).join("") : name;
+    return text.slice(0, 3).toUpperCase();
+};
+---
+
+<section class="bg-dark-alt section-padding">
+    <div class="container">
+        <div class="sec-head">
+            <h2>{title}</h2>
+            {subtitle && <p class="sub">{subtitle}</p>}
+        </div>
+        <div class="stack-grid">
+            {groups.map((group) => (
+                <div class="stack-group">
+                    <h3 class="stack-group-title">{group.title}</h3>
+                    <ul class="stack-group-list">
+                        {group.tools.map((tool) => (
+                            <li class="stack-tool">
+                                {tool.fa ? (
+                                    <i class={`stack-logo ${tool.fa}`} aria-hidden="true"></i>
+                                ) : (
+                                    <>
+                                        {tool.icon ? (
+                                            <img
+                                                class="stack-logo"
+                                                src={`https://cdn.simpleicons.org/${tool.icon}/${IMG_COLOR}`}
+                                                alt=""
+                                                loading="lazy"
+                                                width="20"
+                                                height="20"
+                                            />
+                                        ) : (
+                                            <span class="stack-tile" aria-hidden="true">{initials(tool.name)}</span>
+                                        )}
+                                    </>
+                                )}
+                                <span class="stack-tool-text">
+                                    <strong>{tool.name}</strong>
+                                    <span>{tool.purpose}</span>
+                                </span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

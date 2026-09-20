@@ -4,15 +4,49 @@ import Footer from "../components/Footer.astro";
 import ScrollTop from "../components/ScrollTop.astro";
 import HeroScience from "../components/HeroScience.astro";
 import CallToAction from "../components/CallToAction.astro";
+import StackGrid from "../components/StackGrid.astro";
+
+const scienceGroups = [
+    {
+        title: "Análisis y modelos",
+        tools: [
+            { name: "Python", purpose: "Análisis y modelos", icon: "python" },
+            { name: "scikit-learn", purpose: "Machine Learning clásico", icon: "scikitlearn" },
+            { name: "TensorFlow", purpose: "Modelos a escala", icon: "tensorflow" },
+        ],
+    },
+    {
+        title: "Visualización",
+        tools: [
+            { name: "Power BI", purpose: "Dashboards para negocio" },
+            { name: "Looker Studio", purpose: "Reportes en Google Cloud", icon: "looker" },
+            { name: "Tableau", purpose: "Visualización exploratoria" },
+        ],
+    },
+    {
+        title: "Datos y pipelines",
+        tools: [
+            { name: "Apache Airflow", purpose: "Orquestación de pipelines", icon: "apacheairflow" },
+            { name: "dbt", purpose: "Transformaciones de datos" },
+            { name: "PostgreSQL", purpose: "Almacenamiento confiable", icon: "postgresql" },
+        ],
+    },
+    {
+        title: "Consulta",
+        tools: [
+            { name: "SQL", purpose: "Consulta directa a tus fuentes", fa: "fa-solid fa-database" },
+        ],
+    },
+];
 ---
 
 <Layout title="BGM Solutions - Análisis y Ciencia de Datos">
     <HeroScience />
 
     <section class="container section-padding">
-        <div class="ds-sec-head">
+        <div class="sec-head">
             <h2>Lo que hacemos con tus datos</h2>
-            <p class="ds-sub">Seis capacidades, un solo objetivo: que decidas con mejor información.</p>
+            <p class="sub">Seis capacidades, un solo objetivo: que decidas con mejor información.</p>
         </div>
         <div class="ds-pipeline">
             <div class="ds-stage">
@@ -50,9 +84,9 @@ import CallToAction from "../components/CallToAction.astro";
 
     <section class="bg-dark-alt section-padding">
         <div class="container">
-            <div class="ds-sec-head">
+            <div class="sec-head">
                 <h2>¿Cómo empezamos?</h2>
-                <p class="ds-sub">
+                <p class="sub">
                     Un método claro para convertir tus datos en decisiones. Primer
                     entregable en 15 días.
                 </p>
@@ -90,9 +124,9 @@ import CallToAction from "../components/CallToAction.astro";
     </section>
 
     <section class="container section-padding">
-        <div class="ds-sec-head">
+        <div class="sec-head">
             <h2>Resultados medibles en semanas</h2>
-            <p class="ds-sub">
+            <p class="sub">
                 Lo que han visto quienes ya pasaron de la intuición a la evidencia.
             </p>
         </div>
@@ -112,33 +146,18 @@ import CallToAction from "../components/CallToAction.astro";
         </div>
     </section>
 
-    <section class="bg-dark-alt section-padding">
-        <div class="container">
-            <div class="ds-sec-head">
-                <h2>Trabajamos con tu stack</h2>
-                <p class="ds-sub">La tecnología se elige según tu presupuesto y tus equipos, nunca al revés.</p>
-            </div>
-            <ul class="ds-stack">
-                <li>Python</li>
-                <li>SQL</li>
-                <li>Power BI</li>
-                <li>Looker Studio</li>
-                <li>Tableau</li>
-                <li>Apache Airflow</li>
-                <li>dbt</li>
-                <li>PostgreSQL</li>
-                <li>scikit-learn</li>
-                <li>TensorFlow</li>
-            </ul>
-        </div>
-    </section>
+    <StackGrid
+        title="Trabajamos con tu stack"
+        subtitle="La tecnología se elige según tu presupuesto y tus equipos, nunca al revés."
+        groups={scienceGroups}
+    />
 
     <section class="container section-padding">
-        <div class="ds-sec-head">
+        <div class="sec-head">
             <h2>Preguntas frecuentes</h2>
         </div>
-        <div class="ds-faq">
-            <details class="ds-faq-item">
+        <div class="faq">
+            <details class="faq-item">
                 <summary>No tenemos equipo de datos. ¿Podemos avanzar igual?</summary>
                 <p>
                     Sí. Trabajamos con las fuentes que ya tienes: planillas, ERP,
@@ -146,7 +165,7 @@ import CallToAction from "../components/CallToAction.astro";
                     nadie antes de partir.
                 </p>
             </details>
-            <details class="ds-faq-item">
+            <details class="faq-item">
                 <summary>¿En cuánto tiempo veo algo concreto?</summary>
                 <p>
                     El primer entregable llega en los primeros 15 días. La idea es
@@ -154,14 +173,14 @@ import CallToAction from "../components/CallToAction.astro";
                     mayor.
                 </p>
             </details>
-            <details class="ds-faq-item">
+            <details class="faq-item">
                 <summary>¿Tendré que cambiar mis sistemas actuales?</summary>
                 <p>
                     No. Nos adaptamos a lo que ya tienes y solo proponemos cambios
                     cuando el retorno justifica el esfuerzo.
                 </p>
             </details>
-            <details class="ds-faq-item">
+            <details class="faq-item">
                 <summary>¿Cómo manejan la seguridad de mis datos?</summary>
                 <p>
                     Tus datos nunca se usan para otros clientes ni salen de los

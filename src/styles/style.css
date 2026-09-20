@@ -480,7 +480,7 @@ a {
 	font-size: 1.1rem;
 }
 
-.ds-eyebrow {
+.term-eyebrow {
 	font-family: 'Ubuntu Mono', monospace;
 	font-size: 0.9rem;
 	color: var(--ds-muted);
@@ -488,7 +488,7 @@ a {
 	letter-spacing: 1px;
 }
 
-.ds-prompt {
+.term-prompt {
 	color: #ff9738;
 	font-weight: bold;
 	margin-right: 8px;
@@ -678,19 +678,19 @@ a {
 	color: var(--accent);
 }
 
-/* Encabezados de sección */
-.ds-sec-head {
+/* Encabezados de sección (compartidos) */
+.sec-head {
 	max-width: 640px;
 	margin-bottom: 44px;
 }
 
-.ds-sec-head h2 {
+.sec-head h2 {
 	font-size: clamp(1.6rem, 2.6vw, 2.1rem);
 	color: #fff;
 	margin-bottom: 12px;
 }
 
-.ds-sub {
+.sub {
 	color: var(--ds-muted);
 	font-size: 1.02rem;
 }
@@ -851,43 +851,93 @@ a {
 	line-height: 1.45;
 }
 
-/* Stack */
-.ds-stack {
+/* Stack por categorías (compartido) */
+.stack-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 36px 48px;
+}
+
+.stack-group-title {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 0.78rem;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: var(--accent);
+	margin: 0 0 16px;
+}
+
+.stack-group-list {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	display: flex;
-	flex-wrap: wrap;
-	gap: 12px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 10px;
 }
 
-.ds-stack li {
-	font-family: 'Ubuntu Mono', monospace;
-	font-size: 0.88rem;
-	color: var(--ds-text);
+.stack-tool {
+	display: flex;
+	align-items: center;
+	gap: 12px;
 	background: #0d1117;
 	border: 1px solid var(--card-border);
-	border-radius: 6px;
-	padding: 10px 16px;
-	transition: border-color 0.3s, color 0.3s;
+	border-radius: 8px;
+	padding: 12px 14px;
+	transition: border-color 0.3s;
 }
 
-.ds-stack li:hover {
+.stack-tool:hover {
 	border-color: #2b3a47;
-	color: #fff;
 }
 
-/* FAQ */
-.ds-faq {
+.stack-logo {
+	width: 20px;
+	height: 20px;
+	flex-shrink: 0;
+	text-align: center;
+	line-height: 20px;
+	font-size: 1.05rem;
+	color: var(--ds-muted);
+}
+
+.stack-tile {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	flex-shrink: 0;
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 0.55rem;
+	letter-spacing: -0.5px;
+	color: var(--ds-muted);
+}
+
+.stack-tool-text strong {
+	display: block;
+	color: #fff;
+	font-size: 0.92rem;
+}
+
+.stack-tool-text span {
+	display: block;
+	color: var(--ds-muted);
+	font-size: 0.8rem;
+	line-height: 1.35;
+}
+
+/* FAQ (compartido) */
+.faq {
 	max-width: 780px;
 	border-top: 1px solid var(--card-border);
 }
 
-.ds-faq-item {
+.faq-item {
 	border-bottom: 1px solid var(--card-border);
 }
 
-.ds-faq-item summary {
+.faq-item summary {
 	cursor: pointer;
 	list-style: none;
 	padding: 20px 0;
@@ -900,11 +950,11 @@ a {
 	gap: 16px;
 }
 
-.ds-faq-item summary::-webkit-details-marker {
+.faq-item summary::-webkit-details-marker {
 	display: none;
 }
 
-.ds-faq-item summary::after {
+.faq-item summary::after {
 	content: "+";
 	font-family: 'Ubuntu Mono', monospace;
 	font-size: 1.2rem;
@@ -913,11 +963,11 @@ a {
 	transition: transform 0.25s;
 }
 
-.ds-faq-item[open] summary::after {
+.faq-item[open] summary::after {
 	transform: rotate(45deg);
 }
 
-.ds-faq-item p {
+.faq-item p {
 	color: var(--ds-muted);
 	padding: 0 0 20px;
 	margin: 0;
@@ -927,7 +977,7 @@ a {
 }
 
 .ds-hero a:focus-visible,
-.ds-faq summary:focus-visible {
+.faq summary:focus-visible {
 	outline: 2px solid var(--accent);
 	outline-offset: 3px;
 }
@@ -1009,5 +1059,471 @@ a {
 	}
 	.ds-bar-g {
 		height: 120px;
+	}
+}
+
+/* ===== Página Desarrollo de Software ===== */
+.dev-hero {
+	--ds-panel: #11151c;
+	--ds-inset: #0c0f14;
+	--ds-line: #232a35;
+	--ds-muted: #8b93a1;
+	--ds-text: #e6e9ed;
+	--ds-good: #2dd4a7;
+	width: 100%;
+	padding: 96px 0 88px;
+	background:
+		linear-gradient(rgba(9, 12, 16, 0.92), rgba(9, 12, 16, 0.97)),
+		repeating-linear-gradient(0deg, transparent 0 39px, rgba(0, 212, 255, 0.045) 39px 40px),
+		repeating-linear-gradient(90deg, transparent 0 39px, rgba(0, 212, 255, 0.045) 39px 40px);
+	background-color: #0a0d11;
+	border-bottom: 1px solid var(--card-border);
+}
+
+.dev-hero-inner {
+	display: grid;
+	grid-template-columns: 1.05fr 0.95fr;
+	gap: 64px;
+	align-items: center;
+}
+
+.dev-hero-copy h1 {
+	font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+	line-height: 1.15;
+	text-align: left;
+	margin-bottom: 18px;
+}
+
+.dev-hero-copy .hero-subtitle {
+	text-align: left;
+	margin-left: 0;
+	font-size: 1.1rem;
+}
+
+/* Panel de construcción */
+.dev-panel {
+	background: var(--ds-panel);
+	border: 1px solid var(--ds-line);
+	border-radius: 12px;
+	padding: 22px;
+	box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+	animation: ds-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.dev-panel-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 0.8rem;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: var(--ds-muted);
+	border-bottom: 1px solid var(--ds-line);
+	padding-bottom: 14px;
+	margin-bottom: 18px;
+}
+
+.dev-live {
+	color: var(--ds-good);
+}
+
+.dev-live i {
+	font-size: 0.5rem;
+	vertical-align: middle;
+	margin-right: 6px;
+	animation: ds-pulse 1.6s ease-in-out infinite;
+}
+
+/* Log de compilación */
+.dev-log {
+	background: var(--ds-inset);
+	border: 1px solid var(--ds-line);
+	border-radius: 8px;
+	padding: 14px 16px;
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 0.8rem;
+	line-height: 1.9;
+	margin-bottom: 18px;
+	overflow: hidden;
+}
+
+.dev-log-line {
+	margin: 0;
+	color: var(--ds-muted);
+	opacity: 0;
+	animation: ds-fade 0.35s ease var(--d) both;
+	white-space: nowrap;
+}
+
+.dev-ok {
+	color: var(--ds-good);
+	margin-right: 8px;
+}
+
+.dev-info {
+	color: var(--accent);
+	margin-right: 8px;
+}
+
+.dev-cursor-bar {
+	display: inline-block;
+	width: 10px;
+	height: 14px;
+	background: var(--accent);
+	vertical-align: middle;
+	animation: ds-blink 1s steps(2) infinite;
+}
+
+/* Wireframe en construcción */
+.dev-wire {
+	position: relative;
+	background: var(--ds-inset);
+	border: 1px solid var(--ds-line);
+	border-radius: 8px;
+	padding: 14px;
+}
+
+.dev-wire-bar {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 10px;
+	border: 1px solid var(--ds-line);
+	border-radius: 6px;
+	margin-bottom: 12px;
+}
+
+.dev-frame-dots i {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #2b3a47;
+	display: inline-block;
+	margin-right: 4px;
+}
+
+.dev-frame-url {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 0.7rem;
+	color: var(--ds-muted);
+}
+
+.dev-wire-nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 2px;
+	margin-bottom: 14px;
+}
+
+.dev-wire-body {
+	display: grid;
+	grid-template-columns: 1.2fr 0.8fr;
+	gap: 16px;
+	align-items: center;
+	margin-bottom: 14px;
+}
+
+.dev-wire-copy {
+	display: grid;
+	gap: 10px;
+	justify-items: start;
+}
+
+.dev-wire-frame {
+	border: 1px dashed #2b3a47;
+	border-radius: 6px;
+	background:
+		repeating-linear-gradient(45deg, transparent 0 6px, rgba(0, 212, 255, 0.04) 6px 12px);
+	aspect-ratio: 4 / 3;
+}
+
+.dev-wire-cards {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+}
+
+.dev-skel {
+	display: block;
+	height: 12px;
+	border-radius: 3px;
+	background-color: #212a36;
+	background-image: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.07) 50%, transparent 70%);
+	background-size: 200% 100%;
+	animation: ds-shimmer 2.6s linear infinite;
+}
+
+.dev-skel-dim {
+	background-color: #1a222c;
+}
+
+.dev-skel-accent {
+	background-color: rgba(0, 212, 255, 0.18);
+}
+
+.dev-skel-img {
+	width: 100%;
+	height: 100%;
+}
+
+.dev-skel-card {
+	height: 46px;
+}
+
+.dev-note {
+	position: absolute;
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 0.62rem;
+	letter-spacing: 1px;
+	color: var(--ds-muted);
+	background: var(--ds-inset);
+	padding: 0 6px;
+	white-space: nowrap;
+}
+
+.dev-note-w {
+	top: -8px;
+	left: 62%;
+	transform: translateX(-50%);
+}
+
+.dev-note-c {
+	bottom: -8px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+/* Capacidades */
+.dev-cap-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 18px;
+}
+
+.dev-cap {
+	position: relative;
+	background: #11151c;
+	border: 1px solid var(--card-border);
+	border-radius: 10px;
+	padding: 28px 24px;
+	transition: border-color 0.3s;
+}
+
+.dev-cap:hover {
+	border-color: #2b3a47;
+}
+
+.dev-cap::before,
+.dev-cap::after {
+	content: "";
+	position: absolute;
+	top: 0;
+}
+
+.dev-cap::before {
+	left: 24px;
+	right: 24px;
+	height: 1px;
+	background: linear-gradient(90deg, transparent, #232a35, transparent);
+}
+
+.dev-cap::after {
+	left: 24px;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: var(--accent);
+	transform: translateY(-50%);
+}
+
+.dev-cap i {
+	font-size: 1.4rem;
+	color: var(--accent);
+	margin-bottom: 14px;
+	display: block;
+}
+
+.dev-cap h3 {
+	font-size: 1.15rem;
+	color: #fff;
+	margin-bottom: 8px;
+}
+
+.dev-cap p {
+	color: var(--ds-muted);
+	font-size: 0.95rem;
+	line-height: 1.55;
+	margin: 0;
+}
+
+/* Proceso */
+.dev-process {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 18px;
+}
+
+.dev-proc {
+	background: #0d1117;
+	border: 1px solid var(--card-border);
+	border-radius: 10px;
+	padding: 26px 24px;
+}
+
+.dev-proc-week {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 0.75rem;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: var(--accent);
+	display: block;
+	margin-bottom: 12px;
+}
+
+.dev-proc h3 {
+	font-size: 1.15rem;
+	color: #fff;
+	margin-bottom: 8px;
+}
+
+.dev-proc p {
+	color: var(--ds-muted);
+	font-size: 0.95rem;
+	line-height: 1.55;
+	margin: 0;
+}
+
+.dev-proc-highlight {
+	border-color: #2b3a47;
+	box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.2);
+}
+
+.dev-deliver {
+	list-style: none;
+	margin: 20px 0 0;
+	padding: 18px 0 0;
+	border-top: 1px solid #232a35;
+	display: grid;
+	gap: 10px;
+}
+
+.dev-deliver li {
+	color: var(--ds-text);
+	font-size: 0.92rem;
+}
+
+.dev-deliver i {
+	color: var(--accent);
+	margin-right: 8px;
+}
+
+/* Resultados */
+.dev-results {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 18px;
+}
+
+.dev-result {
+	background: #11151c;
+	border: 1px solid var(--card-border);
+	border-radius: 10px;
+	padding: 30px 24px;
+}
+
+.dev-result-val {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+	font-weight: bold;
+	color: var(--accent);
+	display: block;
+	margin-bottom: 10px;
+}
+
+.dev-result-lbl {
+	color: var(--ds-muted);
+	font-size: 0.95rem;
+	line-height: 1.45;
+}
+
+.dev-hero a:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+}
+
+@keyframes ds-fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes ds-blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+}
+
+@keyframes ds-shimmer {
+	from {
+		background-position: 200% 0;
+	}
+	to {
+		background-position: -200% 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.dev-panel,
+	.dev-log-line,
+	.dev-skel,
+	.dev-cursor-bar,
+	.dev-live i {
+		animation: none !important;
+	}
+	.dev-log-line {
+		opacity: 1;
+	}
+}
+
+@media (max-width: 1024px) {
+	.dev-hero-inner {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+	.dev-hero {
+		padding: 72px 0 64px;
+	}
+	.dev-wire-column {
+		order: 2;
+	}
+}
+
+@media (max-width: 900px) {
+	.dev-cap-grid,
+	.dev-process {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 600px) {
+	.dev-cap-grid,
+	.dev-process,
+	.dev-results {
+		grid-template-columns: 1fr;
+	}
+	.dev-wire-body {
+		grid-template-columns: 1fr;
+	}
+	.dev-log {
+		font-size: 0.72rem;
 	}
 }

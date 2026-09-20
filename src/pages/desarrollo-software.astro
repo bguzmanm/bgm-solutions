@@ -4,44 +4,223 @@ import Footer from "../components/Footer.astro";
 import ScrollTop from "../components/ScrollTop.astro";
 import HeroDevelopment from "../components/HeroDevelopment.astro";
 import CallToAction from "../components/CallToAction.astro";
+import StackGrid from "../components/StackGrid.astro";
+
+const devGroups = [
+    {
+        title: "Frontend",
+        tools: [
+            { name: "React", purpose: "Interfaces y componentes web", icon: "react" },
+            { name: "Next.js", purpose: "Web apps y renderizado en servidor", icon: "nextdotjs" },
+            { name: "TypeScript", purpose: "Tipado en todo el código", icon: "typescript" },
+            { name: "Flutter", purpose: "Apps móviles multiplataforma", icon: "flutter" },
+        ],
+    },
+    {
+        title: "Backend",
+        tools: [
+            { name: "Node.js", purpose: "APIs y servicios en tiempo real", icon: "nodedotjs" },
+            { name: "Python", purpose: "Lógica de negocio y automatización", icon: "python" },
+            { name: "Java", purpose: "Lenguaje backend y sistemas corporativos", fa: "fa-brands fa-java" },
+            { name: "Spring Boot", purpose: "APIs empresariales con Java", icon: "springboot" },
+        ],
+    },
+    {
+        title: "Datos y almacenamiento",
+        tools: [
+            { name: "PostgreSQL", purpose: "Base de datos relacional", icon: "postgresql" },
+            { name: "MySQL", purpose: "Base de datos relacional", icon: "mysql" },
+            { name: "Oracle", purpose: "Base de datos corporativa" },
+        ],
+    },
+    {
+        title: "Infraestructura y DevOps",
+        tools: [
+            { name: "Docker", purpose: "Contenedores y despliegues", icon: "docker" },
+            { name: "Kubernetes", purpose: "Orquestación de contenedores", icon: "kubernetes" },
+            { name: "Terraform", purpose: "Infraestructura como código", icon: "terraform" },
+            { name: "AWS", purpose: "Cloud y escalabilidad", fa: "fa-brands fa-aws" },
+            { name: "GitHub", purpose: "Repos y CI/CD", icon: "github" },
+        ],
+    },
+];
 ---
 
-<Layout title="BGM Solutions - Desarrollo de Software">
-    <HeroDevelopment/>
+<Layout title="BGM Solutions - Desarrollo de Software a Medida">
+    <HeroDevelopment />
 
     <section class="container section-padding">
-        <h2 class="section-title text-center">
-            Construimos el futuro de tu negocio
-        </h2>
-        <div class="grid-problems" style="margin-top: 40px;">
-            <div class="card">
+        <div class="sec-head">
+            <h2>Lo que construimos</h2>
+            <p class="sub">Cuatro formas de atacar tus problemas con software, no una plantilla.</p>
+        </div>
+        <div class="dev-cap-grid">
+            <div class="dev-cap">
                 <i class="fas fa-laptop-code"></i>
                 <h3>Aplicaciones Web</h3>
                 <p>
-                    Desarrollo de plataformas robustas y modernas utilizando las
-                    últimas tecnologías.
+                    Plataformas para clientes y equipos: portales, paneles de
+                    administración y tiendas, construidas para crecer con tu
+                    negocio.
                 </p>
             </div>
-            <div class="card">
-                <i class="fas fa-server"></i>
-                <h3>Integración de Sistemas</h3>
-                <p>
-                    Conectamos tus sistemas actuales para crear un flujo de
-                    trabajo eficiente y unificado.
-                </p>
-            </div>
-            <div class="card">
+            <div class="dev-cap">
                 <i class="fas fa-mobile-alt"></i>
                 <h3>Aplicaciones Móviles</h3>
                 <p>
-                    Lleva tu negocio a las manos de tus clientes con apps
-                    nativas o multiplataforma.
+                    Apps nativas o multiplataforma que llevan tu operación a la
+                    mano de tu equipo y tus clientes.
+                </p>
+            </div>
+            <div class="dev-cap">
+                <i class="fas fa-sitemap"></i>
+                <h3>Integración de Sistemas</h3>
+                <p>
+                    Conectamos tu ERP, CRM y herramientas actuales para que los
+                    datos fluyan sin copiar y pegar.
+                </p>
+            </div>
+            <div class="dev-cap">
+                <i class="fas fa-bolt"></i>
+                <h3>Automatización de Procesos</h3>
+                <p>
+                    Reemplazamos tareas manuales y repetitivas por flujos que se
+                    ejecutan solos, con trazabilidad.
                 </p>
             </div>
         </div>
     </section>
-    <CallToAction title="¿Listo para empezar tu proyecto?" paragraph="Agenda una reunión con nosotros para discutir tus requerimientos
-        técnicos y de negocio."/>
-    <Footer/>
-    <ScrollTop/>
+
+    <section class="bg-dark-alt section-padding">
+        <div class="container">
+            <div class="sec-head">
+                <h2>Cómo trabajamos</h2>
+                <p class="sub">
+                    Etapas cortas, entregas visibles. Ajustas el rumbo antes de
+                    gastar de más, no después.
+                </p>
+            </div>
+            <div class="dev-process">
+                <div class="dev-proc">
+                    <span class="dev-proc-week">Semana 1</span>
+                    <h3>Kickoff</h3>
+                    <p>
+                        Definimos objetivos, alcance y qué significa éxito al final
+                        de cada entrega.
+                    </p>
+                </div>
+                <div class="dev-proc">
+                    <span class="dev-proc-week">Semana 2</span>
+                    <h3>Diseño y prototipo</h3>
+                    <p>
+                        Wireframes navegables que apruebas antes de escribir una
+                        línea de código.
+                    </p>
+                </div>
+                <div class="dev-proc">
+                    <span class="dev-proc-week">Semanas 3-6</span>
+                    <h3>Construcción por sprints</h3>
+                    <p>
+                        Entregas parciales cada dos semanas para ver avances reales
+                        y ajustar sobre la marcha.
+                    </p>
+                </div>
+                <div class="dev-proc dev-proc-highlight">
+                    <span class="dev-proc-week">Entrega</span>
+                    <h3>Despliegue y soporte</h3>
+                    <p>Publicación, capacitación y acompañamiento post-lanzamiento.</p>
+                    <ul class="dev-deliver">
+                        <li><i class="fas fa-check"></i> Código fuente y repositorio</li>
+                        <li><i class="fas fa-check"></i> Documentación técnica y de uso</li>
+                        <li><i class="fas fa-check"></i> Despliegue con dominio y HTTPS</li>
+                        <li><i class="fas fa-check"></i> 30 días de soporte post-lanzamiento</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container section-padding">
+        <div class="sec-head">
+            <h2>Compromisos que puedes exigir</h2>
+            <p class="sub">Lo que mantiene la relación sana de principio a fin.</p>
+        </div>
+        <div class="dev-results">
+            <div class="dev-result">
+                <span class="dev-result-val">6-8</span>
+                <span class="dev-result-lbl">semanas a un MVP típico</span>
+            </div>
+            <div class="dev-result">
+                <span class="dev-result-val">2</span>
+                <span class="dev-result-lbl">semanas por sprint, con demo real</span>
+            </div>
+            <div class="dev-result">
+                <span class="dev-result-val">100%</span>
+                <span class="dev-result-lbl">del código, tuyo</span>
+            </div>
+            <div class="dev-result">
+                <span class="dev-result-val">0</span>
+                <span class="dev-result-lbl">costos ocultos al cierre de cada fase</span>
+            </div>
+        </div>
+    </section>
+
+<StackGrid
+        title="Stack con el que trabajamos"
+        subtitle="Estas son nuestras bases habituales; el stack final se elige para tu proyecto."
+        groups={devGroups}
+    />
+
+    <section class="container section-padding">
+        <div class="sec-head">
+            <h2>Preguntas frecuentes</h2>
+        </div>
+        <div class="faq">
+            <details class="faq-item">
+                <summary>¿Cuánto cuesta desarrollar mi idea?</summary>
+                <p>
+                    Cada proyecto es distinto, por eso cerramos el presupuesto por
+                    fases. Tras el kickoff y el prototipo tienes un costo fijo por
+                    sprint, sin sorpresas.
+                </p>
+            </details>
+            <details class="faq-item">
+                <summary>¿Cuánto tiempo toma?</summary>
+                <p>
+                    Un MVP típico toma 6-8 semanas. Trabajamos con fechas reales
+                    por fase y avisamos de cualquier desvío desde el inicio.
+                </p>
+            </details>
+            <details class="faq-item">
+                <summary>¿Qué pasa si cambio de idea a mitad de proyecto?</summary>
+                <p>
+                    Es normal. Los sprints están hechos para absorber cambios:
+                    reordenamos prioridades y te decimos el impacto en tiempo y
+                    costo antes de avanzar.
+                </p>
+            </details>
+            <details class="faq-item">
+                <summary>¿De quién es el código?</summary>
+                <p>
+                    Tuyo, desde el día uno. Entregamos el repositorio y la
+                    documentación completa al cerrar cada fase, sin dependencia de
+                    nosotros.
+                </p>
+            </details>
+            <details class="faq-item">
+                <summary>¿Qué pasa después del lanzamiento?</summary>
+                <p>
+                    Ofrecemos soporte y evolución con un plan a tu medida:
+                    mantenimiento, mejoras y revisión técnica periódica.
+                </p>
+            </details>
+        </div>
+    </section>
+
+    <CallToAction
+        title="¿Listo para empezar tu proyecto?"
+        paragraph="Agenda una reunión con nosotros para discutir tus requerimientos técnicos y de negocio." />
+
+    <Footer />
+    <ScrollTop />
 </Layout>
